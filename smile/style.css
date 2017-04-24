@@ -1,0 +1,12 @@
+
+#firstOne, #secondOne{
+    background-color: lightpink;
+    height: 500px;
+    width: 500px;
+    display: inline-block;
+    position: relative;
+}
+img{
+    position: absolute;
+}
+
