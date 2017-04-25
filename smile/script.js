@@ -26,15 +26,15 @@ var createExclusiveImg = function()
     // document.getElementById("firstOne").addEventListener("click", add3Element);
 
     document.getElementById("firstOne").lastChild.addEventListener("click", add3Element);
+    if(countAlert == 1){
+        countAlert+=1;
+        document.getElementsByTagName("body")[0].addEventListener("click", function(){
+            alert('Game over');
+            document.getElementById("firstOne").innerHTML = '';
+            document.getElementById("secondOne").innerHTML = '';
+            generateImg();
+    });}
 
-    document.getElementsByTagName("body")[0].addEventListener("click", function(){
-        alert('Game over');
-    });
-
-
-    //event.stopPropagation();
-    // console.log(document.getElementsByTagName("body"));
-    // event.stopPropagation();
 
 
 };
@@ -50,25 +50,26 @@ function add3Element(event) {
         createImg('firstOne');
         i++;
     }while(i!=counter);
-    document.getElementById('secondOne').innerHTML = document.getElementById('firstOne').innerHTML;
+    document.getElementById('secondOne').innerHTML = document.getElementById('firstOne').innerHTML; //clone
     createExclusiveImg();
 
 }
-var i = 0;
-while (i!=4){
-    createImg('secondOne');
-    i++;
+function generateImg() {
+    i = 0;
+    while (i!=4){
+        createImg('secondOne');
+        i++;
+    }
+    document.getElementById('firstOne').innerHTML = document.getElementById('secondOne').innerHTML; //clone
+    createExclusiveImg();
 }
 
-document.getElementById('firstOne').innerHTML = document.getElementById('secondOne').innerHTML;
+var i = 0;
+var countAlert = 1;
+generateImg();
 
 
 
-//
-// createImg('firstOne');
-//document.getElementById("firstOne").addEventListener("click", add3Element);
-
-createExclusiveImg();
 
 
 
